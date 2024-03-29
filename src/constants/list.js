@@ -1,8 +1,16 @@
-import { FACEBOOK_LINK, TWITTER_LINK, YOUTUBE_LINK, INSTAGRAM_LINK } from "@/src/constants/url";
+import {
+  FACEBOOK_LINK,
+  TWITTER_LINK,
+  YOUTUBE_LINK,
+  INSTAGRAM_LINK,
+  GOOGLE_LINK,
+  KAKAO_LINK,
+} from "@/src/constants/url";
 import { MAIN_FACEBOOK, MAIN_TWITTER, MAIN_YOUTUBE, MAIN_INSTAGRAM } from "@/src/constants/image";
 import { shareOnFacebook, shareOnKakao, copyLink } from "@/src/utils/shares";
 import { MODAL_SOCIAL_KAKAO, MODAL_SOCIAL_FACEBOOK, MODAL_SOCIAL_LINK } from "@/src/constants/image";
 import { LANDING_LINK, LANDING_MANAGE, LANDING_SEARCH, LANDING_SHARE } from "@/src/constants/image";
+import { SIGN_KAKAO, SIGN_GOOGLE } from "@/src/constants/image";
 import * as S from "../../pages/landing/main/LandingMainStyle";
 
 export const FOOTER_ICON_LIST = [
@@ -47,6 +55,19 @@ export const SHARE_ICON_LIST = [
     alt: "link",
     children: "링크 추가",
     onClick: () => copyLink(window.location.href),
+  },
+];
+
+export const FORM_SOCIAL_ICON_LIST = [
+  {
+    url: GOOGLE_LINK,
+    image: SIGN_GOOGLE,
+    alt: "google",
+  },
+  {
+    url: KAKAO_LINK,
+    image: SIGN_KAKAO,
+    alt: "kakao",
   },
 ];
 

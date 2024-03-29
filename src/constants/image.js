@@ -33,5 +33,6 @@ export const CARD_STAR = "icon/star.svg";
 export const CARD_BLUE_STAR = "icon/star-blue.svg";
 export const CARD_KEBAB = "icon/kebab.svg";
 export const EYE_CLOSED = "icon/eye-closed.svg";
+export const EYE_OPENED = "icon/eye-opened.svg";
 export const CLOSE_BUTTON = "icon/close-button.svg";
 export const CHECK = "icon/check.svg";

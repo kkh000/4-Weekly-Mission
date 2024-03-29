@@ -11,9 +11,9 @@ interface Props {
   onClick?: () => void;
 }
 
-const Icon = ({ id, alt, url, image, size = "small", children, onClick }: Props) => {
+const Icon = ({ alt, url, image, size = "small", children, onClick }: Props) => {
   return (
-    <S.IconBox id={id} href={url} onClick={onClick} target="_blank" rel="noreferrer">
+    <S.IconBox id={alt} href={url} onClick={onClick} target="_blank" rel="noreferrer">
       <S.Icon size={size} src={image} alt={alt} />
       <S.IconText>{children}</S.IconText>
     </S.IconBox>

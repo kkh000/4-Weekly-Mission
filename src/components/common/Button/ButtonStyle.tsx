@@ -12,6 +12,10 @@ export const Button = styled.button`
   ${({ theme }) => theme.bolds.bold};
 `;
 
+export const FormButton = styled(Button)`
+  width: 100%;
+`;
+
 export const NavigationButton = styled(Button)`
   @media ${({ theme }) => theme.devices.mobile} {
     width: 80px;

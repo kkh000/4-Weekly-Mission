@@ -1,12 +1,12 @@
 import { useState, forwardRef } from "react";
 import DeleteModal from "@/src/components/common/Modal/DeleteModal";
 import ListModal from "@/src/components/common/Modal/ListModal";
-import { FolderList } from "@/src/constants/types";
+import { FolderItemInfo } from "@/src/constants/types";
 import * as S from "./SelectMenuStyle";
 
 interface Props {
   url: string;
-  folderList: FolderList[];
+  folderList: FolderItemInfo[];
 }
 
 const SelectMenu = forwardRef<HTMLDivElement, Props>(({ url, folderList }, ref) => {
