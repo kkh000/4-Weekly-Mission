@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import ReactDom from "react-dom";
 import { ReactNode } from "react";
 import { allowScroll, preventScroll } from "@/src/utils/scroll";
-
 import * as S from "./ModalStyle";
 
 export interface ModalProps {

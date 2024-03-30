@@ -1,12 +1,12 @@
-import SignupForm from "./Form/Signup/SignupForm";
+import Signup from "./Form/Signup/Signup";
 import * as S from "@/src/components/Form/FormStyle";
 
-const Signup = () => {
+const SignupPage = () => {
   return (
     <S.Form>
-      <SignupForm />
+      <Signup />
     </S.Form>
   );
 };
 
-export default Signup;
+export default SignupPage;

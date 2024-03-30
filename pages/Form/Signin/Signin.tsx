@@ -4,7 +4,7 @@ import InputPassword from "@/src/components/Form/FormInput";
 import Social from "@/src/components/Form/FormSocial";
 import { FormButton } from "@/src/components/common/Button/ButtonStyle";
 
-const SigninForm = () => {
+const Signin = () => {
   return (
     <>
       <Title path="/signup" title="회원이 아니신가요?" linkMessage="회원 가입하기" />
@@ -20,4 +20,4 @@ const SigninForm = () => {
   );
 };
 
-export default SigninForm;
+export default Signin;
