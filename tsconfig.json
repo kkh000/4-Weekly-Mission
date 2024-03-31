@@ -17,6 +17,12 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/components/Input/SignInput/SignInputStyle.jsx",
+    "src/components/Input/SignInput/SignInput.jsx"
+  ],
   "exclude": ["node_modules"]
 }
