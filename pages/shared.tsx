@@ -1,14 +1,11 @@
-import Navigation from "@/src/components/Navigation/Navigation";
-import Footer from "@/src/components/Footer/Footer";
+import RootLayout from "./_layout";
 import Shared from "./Shared/shared";
 
 const SharedPage = () => {
   return (
-    <>
-      <Navigation />
+    <RootLayout>
       <Shared />
-      <Footer />
-    </>
+    </RootLayout>
   );
 };
 

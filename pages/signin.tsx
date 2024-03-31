@@ -1,11 +1,11 @@
-import Signin from "./Form/Signin/Signin";
-import * as S from "@/src/components/Form/FormStyle";
+import Signin from "./(form)/Signin/Signin";
+import FormLayout from "./(form)";
 
 const SigninPage = () => {
   return (
-    <S.Form>
+    <FormLayout>
       <Signin />
-    </S.Form>
+    </FormLayout>
   );
 };
 

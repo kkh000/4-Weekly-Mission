@@ -1,7 +1,7 @@
-import { useRouter } from "next/router";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { LINKBRARY_LOGO } from "@/src/constants/image";
-import { NavigationButton } from "../common/Button/ButtonStyle";
+import { NavigationButton } from "@/src/components/Button/ButtonStyle";
 import * as S from "./NavigationStyle";
 
 const Navigation = () => {

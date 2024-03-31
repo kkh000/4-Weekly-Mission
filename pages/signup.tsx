@@ -1,11 +1,11 @@
-import Signup from "./Form/Signup/Signup";
-import * as S from "@/src/components/Form/FormStyle";
+import Signup from "./(form)/Signup/Signup";
+import FormLayout from "./(form)";
 
 const SignupPage = () => {
   return (
-    <S.Form>
+    <FormLayout>
       <Signup />
-    </S.Form>
+    </FormLayout>
   );
 };
 

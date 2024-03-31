@@ -1,14 +1,11 @@
-import Navigation from "@/src/components/Navigation/Navigation";
-import Footer from "@/src/components/Footer/Footer";
+import RootLayout from "./_layout";
 import Folder from "./Folder/Folder";
 
 const FolderPage = () => {
   return (
-    <>
-      <Navigation />
+    <RootLayout>
       <Folder />
-      <Footer />
-    </>
+    </RootLayout>
   );
 };
 

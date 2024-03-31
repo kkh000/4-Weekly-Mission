@@ -1,4 +1,4 @@
-import Icon from "../common/Icon/Icon";
+import Icon from "@/src/components/Icon/Icon";
 import { FORM_SOCIAL_ICON_LIST } from "@/src/constants/list";
 import * as S from "./FormStyle";
 

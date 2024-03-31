@@ -1,5 +1,5 @@
-import { LINKBRARY_LOGO } from "@/src/constants/image";
 import Link from "next/link";
+import { LINKBRARY_LOGO } from "@/src/constants/image";
 import * as S from "./FormStyle";
 
 interface Props {

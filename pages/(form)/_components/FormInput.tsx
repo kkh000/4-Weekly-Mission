@@ -7,9 +7,10 @@ interface Props {
   children: ReactNode;
   type: string;
   errorMessage: string;
+  placeholder?: string;
 }
 
-const FormInput = ({ type, errorMessage, children }: Props) => {
+const FormInput = ({ type, errorMessage, children, placeholder }: Props) => {
   const [value, setValue] = useState("");
   const [focus, setFocus] = useState(false);
   const [error, setError] = useState(false);
@@ -43,6 +44,7 @@ const FormInput = ({ type, errorMessage, children }: Props) => {
       <S.InputBox $isError={error} $isfocused={focus}>
         <S.Input
           id={type}
+          placeholder={placeholder}
           type={type === "email" ? "email" : showPassword ? "text" : "password"}
           onFocus={handleFocus}
           onBlur={handleBlur}

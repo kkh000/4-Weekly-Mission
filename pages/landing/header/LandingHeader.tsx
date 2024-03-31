@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MainHeaderButton } from "@/src/components/common/Button/ButtonStyle";
+import { MainHeaderButton } from "@/src/components/Button/ButtonStyle";
 import { LANDING_HEADER } from "@/src/constants/image";
 import * as S from "./LandingHeaderStyle";
 

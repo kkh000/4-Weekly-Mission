@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Icon from "@/src/components/common/Icon/Icon";
+import Icon from "@/src/components/Icon/Icon";
 import { FOOTER_ICON_LIST } from "@/src/constants/list";
 import * as S from "./FooterStyle";
 
