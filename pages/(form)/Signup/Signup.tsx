@@ -8,7 +8,7 @@ import { FormButton } from "@/src/components/Button/ButtonStyle";
 const Signup = () => {
   return (
     <>
-      <Title title="이미 회원이신가요?" linkMessage="로그인 하기" />
+      <Title path="/signin" title="이미 회원이신가요?" linkMessage="로그인 하기" />
       <InputEmail type="email" errorMessage="내용을 다시 작성해 주세요" placeholder="내용입력">
         이메일
       </InputEmail>
