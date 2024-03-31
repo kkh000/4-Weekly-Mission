@@ -17,7 +17,7 @@ const Folder = () => {
         const folderList = responseData.data;
         setFolderList(folderList);
       } catch (Error) {
-        console.error("Error");
+        console.error("Error!");
       }
     };
     folderData();
