@@ -5,9 +5,10 @@ import * as S from "@/src/styles/FormStyle";
 interface Props {
   linkMessage: string;
   title: string;
+  path: string;
 }
 
-const FormTitle = ({ linkMessage, title }: Props) => {
+const FormTitle = ({ path, linkMessage, title }: Props) => {
   return (
     <S.Container>
       <Link href="/">
@@ -15,7 +16,7 @@ const FormTitle = ({ linkMessage, title }: Props) => {
       </Link>
       <S.TitleBox>
         <S.TitleText>{title}</S.TitleText>
-        <Link href="/">
+        <Link href={path ?? ""}>
           <S.TitleLink>{linkMessage}</S.TitleLink>
         </Link>
       </S.TitleBox>
