@@ -1,5 +1,5 @@
 import RootLayout from "./_layout";
-import Folder from "./Folder/Folder";
+import Folder from "./Folder/FolderPage";
 
 const FolderPage = () => {
   return (
