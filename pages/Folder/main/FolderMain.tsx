@@ -7,6 +7,7 @@ import FolderCard from "./Card/FolderCard";
 import { updatedDate, updatedDuration } from "@/src/utils/createdAt";
 import { FOLDER_CARD_DATA_API_URL } from "@/src/constants/url";
 import { FolderItemInfo, FolderCardInfo } from "@/src/constants/types";
+import CreateAxiosInstance from "@/src/utils/axios";
 import * as S from "./FolderMainStyle";
 
 interface Props {
@@ -18,16 +19,13 @@ const FolderMain = ({ folderList }: Props) => {
   const [cardData, setCardData] = useState<FolderCardInfo[]>([]);
   const [searchFilter, setSearchFilter] = useState<FolderCardInfo[]>(cardData);
 
-  const handleFolderChange = (folder: FolderItemInfo) => {
-    setFolder(folder);
-  };
-
   useEffect(() => {
     const folderCardData = async () => {
+      const axios = CreateAxiosInstance();
       try {
         let url = folder.id === null ? FOLDER_CARD_DATA_API_URL : `${FOLDER_CARD_DATA_API_URL}?folderId=${folder.id}`;
-        const response = await fetch(url);
-        const responseData = await response.json();
+        const response = await axios.get(url);
+        const responseData = response.data;
         const folderCard = responseData.data.map((cardDataList: FolderCardInfo) => ({
           ...cardDataList,
           time: updatedDuration(cardDataList.created_at),
@@ -41,9 +39,13 @@ const FolderMain = ({ folderList }: Props) => {
     folderCardData();
   }, [folder]);
 
+  const handleFolderChange = (folder: FolderItemInfo) => {
+    setFolder(folder);
+  };
+
   return (
     <S.Container>
-      <SearchInput cardData={cardData} setSearchFilter={setSearchFilter} />
+      <SearchInput cardList={cardData} setSearchFilter={setSearchFilter} />
       <S.Box>
         <SortToolbar folderList={folderList} onChange={handleFolderChange} />
         <AddFolder />
@@ -56,7 +58,7 @@ const FolderMain = ({ folderList }: Props) => {
         <S.NoneLink>저장된 링크가 없습니다.</S.NoneLink>
       ) : (
         <S.Grid>
-          <FolderCard cardData={searchFilter} folderList={folderList} />
+          <FolderCard cardList={searchFilter} folderList={folderList} />
         </S.Grid>
       )}
     </S.Container>

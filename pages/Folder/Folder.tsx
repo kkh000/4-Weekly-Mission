@@ -1,20 +1,27 @@
-import useFetch from "@/src/utils/hooks/useFetch";
+import { useState, useEffect } from "react";
 import FolderHeader from "./header/AddLink";
 import FolderMain from "./main/FolderMain";
 import { FOLDER_LIST_API_URL } from "@/src/constants/url";
-import { FolderItemProps } from "@/src/constants/types";
+import CreateAxiosInstance from "@/src/utils/axios";
+import { FolderItemInfo } from "@/src/constants/types";
 
 const Folder = () => {
-  const {
-    data: folderListData,
-    error: dataError,
-    loading: dataLoading,
-  } = useFetch<FolderItemProps>(FOLDER_LIST_API_URL);
+  const [folderList, setFolderList] = useState<FolderItemInfo[]>([]);
 
-  if (dataLoading) return <div>Loading...</div>;
-  if (dataError || !folderListData) return <div>Error</div>;
-
-  const folderList = folderListData.data;
+  useEffect(() => {
+    const folderData = async () => {
+      const axios = CreateAxiosInstance();
+      try {
+        const response = await axios.get(FOLDER_LIST_API_URL);
+        const responseData = response.data;
+        const folderList = responseData.data;
+        setFolderList(folderList);
+      } catch (Error) {
+        console.error("Error");
+      }
+    };
+    folderData();
+  }, []);
 
   return (
     <>

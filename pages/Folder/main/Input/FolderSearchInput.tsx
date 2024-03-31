@@ -5,11 +5,11 @@ import { FolderCardInfo } from "@/src/constants/types";
 import * as S from "./SearchStyle";
 
 interface Props {
-  cardData: FolderCardInfo[];
+  cardList: FolderCardInfo[];
   setSearchFilter: React.Dispatch<React.SetStateAction<FolderCardInfo[]>>;
 }
 
-const FolderSerachInput = ({ cardData, setSearchFilter }: Props) => {
+const FolderSerachInput = ({ cardList, setSearchFilter }: Props) => {
   const [showMessage, setShowMessage] = useState(false);
   const [showtitle, setShowTitle] = useState("");
   const [search, setSearch] = useState("");
@@ -19,7 +19,7 @@ const FolderSerachInput = ({ cardData, setSearchFilter }: Props) => {
   const showSearchData = () => {
     let keyword = search.trim().replace(/\s+/g, " ");
     if (keyword.trim() !== "") {
-      const filteredData = cardData.filter((card) => {
+      const filteredData = cardList.filter((card) => {
         return (
           card.url.includes(keyword) ||
           (card.title && card.title.includes(keyword)) ||
@@ -38,7 +38,7 @@ const FolderSerachInput = ({ cardData, setSearchFilter }: Props) => {
   const resetSearchData = () => {
     setSearch("");
     setShowMessage(false);
-    setSearchFilter(cardData);
+    setSearchFilter(cardList);
     router.push(`/folder`);
   };
 
@@ -56,8 +56,8 @@ const FolderSerachInput = ({ cardData, setSearchFilter }: Props) => {
   };
 
   useEffect(() => {
-    setSearchFilter(cardData);
-  }, [cardData, setSearchFilter]);
+    setSearchFilter(cardList);
+  }, [cardList, setSearchFilter]);
 
   return (
     <S.Container>

@@ -3,7 +3,7 @@ import { useState } from "react";
 const useAsync = <T extends () => Promise<any>>(asyncFunction: T) => {
   const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<Error | unknown>(null);
+  const [error, setError] = useState<any>(null);
 
   const fetchData = async () => {
     try {

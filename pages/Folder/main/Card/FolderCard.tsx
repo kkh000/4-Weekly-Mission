@@ -5,11 +5,11 @@ import { FolderItemInfo, FolderCardInfo } from "@/src/constants/types";
 import * as S from "./CardStyle";
 
 interface Props {
-  cardData: FolderCardInfo[];
+  cardList: FolderCardInfo[];
   folderList: FolderItemInfo[];
 }
 
-const Card = forwardRef<HTMLDivElement, Props>(({ cardData, folderList }: Props, ref) => {
+const Card = forwardRef<HTMLDivElement, Props>(({ cardList, folderList }: Props, ref) => {
   const [isToggledKebab, setIsToggledKebab] = useState<number | null>(null);
   const selectMenuRef = useRef<HTMLDivElement>(null);
   Card.displayName = "Card";
@@ -30,7 +30,7 @@ const Card = forwardRef<HTMLDivElement, Props>(({ cardData, folderList }: Props,
     };
   }, []);
 
-  return cardData.map((card) => (
+  return cardList.map((card) => (
     <S.Container key={card.id} href={card.url} target="_blank" rel="noreferrer">
       <S.ImageBox>
         <S.Image src={card.image_source ?? CARD_NONE_IMAGE} alt={String(card.id)} />

@@ -8,8 +8,8 @@ interface Props {
 const SharedHeader = ({ userProfile }: Props) => {
   return (
     <S.Container>
-      <S.Image src={userProfile?.owner.profileImageSource} />
-      <S.Owner>{userProfile?.owner.name}</S.Owner>
+      <S.Image src={userProfile?.owner?.profileImageSource} />
+      <S.Owner>{userProfile?.owner?.name}</S.Owner>
       <S.Folder>{userProfile?.name}</S.Folder>
     </S.Container>
   );
