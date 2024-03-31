@@ -2,7 +2,7 @@ import { useState, forwardRef } from "react";
 import DeleteModal from "@/src/components/Modal/DeleteModal";
 import ListModal from "@/src/components/Modal/ListModal";
 import { FolderItemInfo } from "@/src/constants/types";
-import * as S from "./SelectMenuStyle";
+import * as S from "@/src/styles/SelectMenuStyle";
 
 interface Props {
   url: string;

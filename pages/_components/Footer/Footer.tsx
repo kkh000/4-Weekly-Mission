@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Icon from "@/src/components/Icon/Icon";
 import { FOOTER_ICON_LIST } from "@/src/constants/list";
-import * as S from "./FooterStyle";
+import * as S from "@/src/styles/FooterStyle";
 
 const Footer = () => {
   return (

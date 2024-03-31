@@ -11,7 +11,7 @@ import { shareOnFacebook, shareOnKakao, copyLink } from "@/src/utils/shares";
 import { MODAL_SOCIAL_KAKAO, MODAL_SOCIAL_FACEBOOK, MODAL_SOCIAL_LINK } from "@/src/constants/image";
 import { LANDING_LINK, LANDING_MANAGE, LANDING_SEARCH, LANDING_SHARE } from "@/src/constants/image";
 import { SIGN_KAKAO, SIGN_GOOGLE } from "@/src/constants/image";
-import * as S from "../../pages/landing/main/LandingMainStyle";
+import * as S from "../styles/LandingMainStyle";
 
 export const FOOTER_ICON_LIST = [
   {

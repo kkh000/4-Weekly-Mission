@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { CLOSE_BUTTON, SEARCH_ICON } from "@/src/constants/image";
 import { SharedCardProps } from "@/src/constants/types";
-import * as S from "../../../Folder/main/Input/SearchStyle";
+import * as S from "@/src/styles/SearchStyle";
 
 interface Props {
   cardData: SharedCardProps[];
@@ -23,7 +23,6 @@ const SearchLink = ({ cardData, setSearchFilter }: Props) => {
   };
 
   const resetSearchData = () => {
-    setSearchFilter(cardData);
     setShowMessage(false);
     setSearch("");
   };

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { CLOSE_BUTTON, SEARCH_ICON } from "@/src/constants/image";
 import { FolderCardInfo } from "@/src/constants/types";
-import * as S from "./SearchStyle";
+import * as S from "@/src/styles/SearchStyle";
 
 interface Props {
   cardList: FolderCardInfo[];

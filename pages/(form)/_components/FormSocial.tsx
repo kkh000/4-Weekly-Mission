@@ -1,6 +1,6 @@
 import Icon from "@/src/components/Icon/Icon";
 import { FORM_SOCIAL_ICON_LIST } from "@/src/constants/list";
-import * as S from "./FormStyle";
+import * as S from "@/src/styles/FormStyle";
 
 const FormSocial = () => {
   return (

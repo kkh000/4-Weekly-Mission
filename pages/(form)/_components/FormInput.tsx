@@ -1,7 +1,7 @@
 import { useState, ReactNode } from "react";
 import { EYE_CLOSED, EYE_OPENED } from "@/src/constants/image";
 import { EMAIL_REGEX, PASSWORD_REGEX } from "@/src/constants/regex";
-import * as S from "./FormStyle";
+import * as S from "@/src/styles/FormStyle";
 
 interface Props {
   children: ReactNode;
