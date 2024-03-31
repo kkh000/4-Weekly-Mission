@@ -1,5 +1,5 @@
 import RootLayout from "./_layout";
-import Shared from "./Shared/shared";
+import Shared from "./Shared/sharedPage";
 
 const SharedPage = () => {
   return (
