@@ -1,4 +1,4 @@
-import * as S from "@/pages/(form)/_components/FormStyle";
+import * as S from "@/src/styles/FormStyle";
 import { ReactNode } from "react";
 
 interface Props {

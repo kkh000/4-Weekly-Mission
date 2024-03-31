@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import InputModal from "@/src/components/Modal/InputModal";
 import { ADD_FOLDER_ICON, ACTION_BUTTON_ICON } from "@/src/constants/image";
-import * as S from "./ActionButtonStyle";
+import * as S from "@/src/styles/ActionButtonStyle";
 
 const ActionButton = () => {
   const [isToggledModal, setIsToggeldModal] = useState(false);

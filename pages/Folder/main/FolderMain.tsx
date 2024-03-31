@@ -8,7 +8,7 @@ import { updatedDate, updatedDuration } from "@/src/utils/createdAt";
 import { FOLDER_CARD_DATA_API_URL } from "@/src/constants/url";
 import { FolderItemInfo, FolderCardInfo } from "@/src/constants/types";
 import CreateAxiosInstance from "@/src/utils/axios";
-import * as S from "./FolderMainStyle";
+import * as S from "@/src/styles/FolderMainStyle";
 
 interface Props {
   folderList: FolderItemInfo[];

@@ -1,5 +1,5 @@
 import { LANDING_CONTENTS_LIST } from "@/src/constants/list";
-import * as S from "./LandingMainStyle";
+import * as S from "@/src/styles/LandingMainStyle";
 
 const LandingMain = () => {
   return (

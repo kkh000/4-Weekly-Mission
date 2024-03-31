@@ -1,5 +1,5 @@
 import { UserInfo } from "@/src/constants/types";
-import * as S from "./UserProfileStyle";
+import * as S from "@/src/styles/UserProfileStyle";
 
 interface Props {
   userProfile: UserInfo | null;
