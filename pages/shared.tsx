@@ -1,34 +1,39 @@
-import { useState, useEffect } from "react";
 import RootLayout from "./_layout";
-import FolderHeader from "@/src/components/Folder/Header/AddLink";
-import FolderMain from "@/src/components/Folder/Main/FolderMain";
-import { FOLDER_LIST_API_URL } from "@/src/constants/url";
+import SharedHeader from "@/src/components/Shared/Header/UserProfile";
+import SharedMain from "@/src/components/Shared/Main/SharedMain";
+import { SHARED_API_URL } from "@/src/constants/url";
+import { UserInfo, SharedCardProps } from "@/src/types/types";
+import { updatedDate, updatedDuration } from "@/src/utils/createdAt";
 import CreateAxiosInstance from "@/src/utils/axios";
-import { FolderItemInfo } from "@/src/types/types";
 
-const SharedPage = () => {
-  const [folderList, setFolderList] = useState<FolderItemInfo[]>([]);
+interface Props {
+  sharedCardData: SharedCardProps[];
+  userProfileData: UserInfo | null;
+}
 
-  useEffect(() => {
-    const folderData = async () => {
-      const axios = CreateAxiosInstance();
-      try {
-        const response = await axios.get(FOLDER_LIST_API_URL);
-        const responseData = response.data;
-        const folderList = responseData.data;
-        setFolderList(folderList);
-      } catch (Error) {
-        console.error("Error!");
-      }
-    };
-    folderData();
-  }, []);
+const SharedPage = ({ userProfileData, sharedCardData }: Props) => {
   return (
     <RootLayout>
-      <FolderHeader folderList={folderList} />
-      <FolderMain folderList={folderList} />
+      <SharedHeader userProfile={userProfileData} />
+      <SharedMain cardData={sharedCardData} />
     </RootLayout>
   );
 };
 
 export default SharedPage;
+
+export const getServerSideProps = async () => {
+  const axios = CreateAxiosInstance();
+  try {
+    const response = await axios.get(SHARED_API_URL);
+    const userProfileData = response.data.folder;
+    const sharedCardData = response.data.folder.links.map((link: SharedCardProps) => ({
+      ...link,
+      time: updatedDuration(link.createdAt),
+      date: updatedDate(link.createdAt),
+    }));
+    return { props: { userProfileData, sharedCardData } };
+  } catch (error) {
+    console.error(error);
+  }
+};

@@ -11,7 +11,7 @@ interface ShareModalProps extends Omit<ModalProps, "children"> {
   folderId: number | null;
 }
 
-const ShareModal = ({ title, folderName, folderId, onClose }: ShareModalProps) => {
+const ShareModal = ({ title, folderName, onClose }: ShareModalProps) => {
   return (
     <Modal title={title}>
       <S.Text>{folderName}</S.Text>
