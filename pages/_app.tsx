@@ -4,7 +4,6 @@ import theme from "@/src/styles/theme";
 import { ThemeProvider } from "styled-components";
 
 export default function App({ Component, pageProps }: AppProps) {
-  console.log(pageProps);
   return (
     <>
       <GlobalStyles />
