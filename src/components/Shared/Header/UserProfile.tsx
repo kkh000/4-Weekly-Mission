@@ -1,5 +1,5 @@
 import { UserInfo } from "@/src/types/types";
-import * as S from "@/src/styles/UserProfileStyle";
+import * as S from "@/src/components/Shared/Header/UserProfileStyle";
 
 interface Props {
   userProfile: UserInfo | null;

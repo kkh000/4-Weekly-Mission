@@ -3,7 +3,7 @@ import InputModal from "@/src/components/common/Modal/InputModal";
 import ShareModal from "@/src/components/common/Modal/ShareModal";
 import DeleteModal from "@/src/components/common/Modal/DeleteModal";
 import { EDIT_SHARE, EDIT_CHANGE, EDIT_DELETE } from "@/src/constants/image";
-import * as S from "@/src/styles/EditToolbarStyle";
+import * as S from "@/src/components/Folder/Main/Toolbar/Edit/EditToolbarStyle";
 
 interface Props {
   folderName: string;

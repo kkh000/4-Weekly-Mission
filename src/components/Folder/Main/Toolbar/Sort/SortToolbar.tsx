@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FolderItemInfo } from "@/src/types/types";
-import * as S from "@/src/styles/SortToolbarStyle";
+import * as S from "@/src/components/Folder/Main/Toolbar/Sort/SortToolbarStyle";
 
 interface Props {
   folderList: FolderItemInfo[];

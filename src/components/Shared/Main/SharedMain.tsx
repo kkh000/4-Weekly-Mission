@@ -2,7 +2,7 @@ import { useState } from "react";
 import SearchLink from "./Input/SharedSearchInput";
 import SharedCard from "./Card/SharedCard";
 import { SharedCardProps } from "@/src/types/types";
-import * as S from "@/src/styles/SharedMainStyle";
+import * as S from "@/src/components/Shared/SharedMainStyle";
 
 interface Props {
   cardData: SharedCardProps[];

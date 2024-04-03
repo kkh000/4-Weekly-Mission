@@ -3,7 +3,7 @@ import { AddLinkButton } from "@/src/components/common/Button/ButtonStyle";
 import ListModal from "@/src/components/common/Modal/ListModal";
 import { FolderItemInfo } from "@/src/types/types";
 import { LINK_ICON } from "@/src/constants/image";
-import * as S from "@/src/styles/AddLinkStyle";
+import * as S from "@/src/components/Folder/Header/AddLinkStyle";
 
 interface Props {
   folderList: FolderItemInfo[];
