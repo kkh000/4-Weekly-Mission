@@ -145,7 +145,6 @@ const Signup = () => {
         이메일
       </InputEmail>
       <InputPassword
-        id="signupPassword"
         error={passwordError}
         onBlur={handleBlurPassword}
         onFocus={handlePasswordFocus}

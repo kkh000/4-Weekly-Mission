@@ -13,7 +13,6 @@ interface Props {
   isFocused: boolean;
   errorMessage: string;
   password: string;
-  id: string;
 }
 
 const PasswordInput = ({
@@ -26,7 +25,6 @@ const PasswordInput = ({
   children,
   errorMessage,
   password,
-  id,
 }: Props) => {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -36,10 +34,10 @@ const PasswordInput = ({
 
   return (
     <S.Container>
-      <S.InputTitle htmlFor={id}>{children}</S.InputTitle>
+      <S.InputTitle htmlFor="check">{children}</S.InputTitle>
       <S.InputBox $isError={error} $isfocused={isFocused}>
         <S.Input
-          id={id}
+          id="check"
           placeholder={placeholder}
           type={showPassword ? "text" : "password"}
           onFocus={onFocus}

@@ -2,9 +2,10 @@ import Modal from "./BaseModal";
 import Icon from "../Icon/Icon";
 import { ModalProps } from "./BaseModal";
 import { CLOSE_BUTTON } from "@/src/constants/image";
-
 import { SHARE_ICON_LIST } from "@/src/constants/list";
 import * as S from "./ModalStyle";
+import { useEffect } from "react";
+import { shareOnKakao } from "@/src/utils/shares";
 
 interface ShareModalProps extends Omit<ModalProps, "children"> {
   folderName: string;
@@ -12,6 +13,9 @@ interface ShareModalProps extends Omit<ModalProps, "children"> {
 }
 
 const ShareModal = ({ title, folderName, onClose }: ShareModalProps) => {
+  useEffect(() => {
+    shareOnKakao();
+  });
   return (
     <Modal title={title}>
       <S.Text>{folderName}</S.Text>

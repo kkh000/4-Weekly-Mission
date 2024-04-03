@@ -22,7 +22,8 @@
     "**/*.ts",
     "**/*.tsx",
     "src/components/Input/SignInput/SignInputStyle.jsx",
-    "src/components/Input/SignInput/SignInput.jsx"
+    "src/components/Input/SignInput/SignInput.jsx",
+    "src/constants/list.js"
   ],
   "exclude": ["node_modules"]
 }

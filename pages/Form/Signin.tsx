@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { EMAIL_REGEX } from "@/src/constants/regex";
 import Title from "@/src/components/common/Form/FormTitle";
 import InputEmail from "@/src/components/common/Form/Input/EmailInput";
 import InputPassword from "@/src/components/common/Form/Input/PasswordInput";
 import Social from "@/src/components/common/Form/FormSocial";
 import { FormButton } from "@/src/components/common/Button/ButtonStyle";
+import { EMAIL_REGEX } from "@/src/constants/regex";
 import CreateAxiosInstance from "@/src/utils/axios";
 
 const Signin = () => {
@@ -23,6 +23,10 @@ const Signin = () => {
     setEmailFocus(true);
   };
 
+  const handleFocusPassword = () => {
+    setPasswordFocus(true);
+  };
+
   const handleBlurEmail = () => {
     setEmailFocus(false);
 
@@ -38,14 +42,6 @@ const Signin = () => {
     }
   };
 
-  const handleChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setEmailValue(event.target.value);
-  };
-
-  const handlePasswordFocus = () => {
-    setPasswordFocus(true);
-  };
-
   const handleBlurPassword = () => {
     setPasswordFocus(false);
 
@@ -55,6 +51,10 @@ const Signin = () => {
     } else {
       setPasswordError(false);
     }
+  };
+
+  const handleChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmailValue(event.target.value);
   };
 
   const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -106,10 +106,9 @@ const Signin = () => {
         이메일
       </InputEmail>
       <InputPassword
-        id="signinPassword"
         error={passwordError}
         onBlur={handleBlurPassword}
-        onFocus={handlePasswordFocus}
+        onFocus={handleFocusPassword}
         onChange={handlePasswordChange}
         isFocused={passwordFocus}
         errorMessage={passwordErrorMessage}

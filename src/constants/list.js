@@ -45,12 +45,14 @@ export const SHARE_ICON_LIST = [
     onClick: shareOnKakao,
   },
   {
+    id: "faceebook",
     image: MODAL_SOCIAL_FACEBOOK,
     alt: "facebook",
     children: "페이스북",
     onClick: (folderId) => shareOnFacebook(folderId),
   },
   {
+    id: "link",
     image: MODAL_SOCIAL_LINK,
     alt: "link",
     children: "링크 추가",
