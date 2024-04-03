@@ -1,9 +1,11 @@
 import { useState, ReactNode } from "react";
-import { EMAIL_REGEX } from "@/src/constants/regex";
+import { EYE_CLOSED, EYE_OPENED } from "@/src/constants/image";
+
 import * as S from "@/src/components/common/Form/FormStyle";
 
 interface Props {
   children: ReactNode;
+  type: string;
   placeholder: string;
   error: boolean;
   onBlur: () => void;
@@ -11,38 +13,46 @@ interface Props {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   isFocused: boolean;
   errorMessage: string;
-  email: string;
+  passwordCheck: string;
 }
 
-const EmailInput = ({
+const PasswordCheckInput = ({
   onBlur,
   onChange,
   onFocus,
   isFocused,
   error,
   placeholder,
+  type,
   children,
   errorMessage,
-  email,
+  passwordCheck,
 }: Props) => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <S.Container>
-      <S.InputTitle htmlFor="email">{children}</S.InputTitle>
+      <S.InputTitle htmlFor="passwordCheck">{children}</S.InputTitle>
       <S.InputBox $isError={error} $isfocused={isFocused}>
         <S.Input
-          id="email"
+          id="passwordCheck"
           placeholder={placeholder}
-          type="email"
+          type={showPassword ? "text" : "password"}
           onFocus={onFocus}
           onBlur={onBlur}
           onChange={onChange}
-          value={email}
-          autoComplete="username"
+          value={passwordCheck}
+          autoComplete="new-password"
         />
+        <S.Image src={showPassword ? EYE_OPENED : EYE_CLOSED} alt="eye" onClick={handleTogglePassword} />
       </S.InputBox>
       {error && <S.Error>{errorMessage}</S.Error>}
     </S.Container>
   );
 };
 
-export default EmailInput;
+export default PasswordCheckInput;
