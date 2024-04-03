@@ -1,6 +1,6 @@
 import { useState, ReactNode } from "react";
 import { EYE_CLOSED, EYE_OPENED } from "@/src/constants/image";
-import { EMAIL_REGEX, PASSWORD_REGEX } from "@/src/constants/regex";
+import { PASSWORD_REGEX } from "@/src/constants/regex";
 import * as S from "@/src/components/common/Form/FormStyle";
 
 interface Props {
@@ -22,12 +22,7 @@ const PasswordInput = ({ type, errorMessage, children, placeholder }: Props) => 
 
   const handleBlur = () => {
     setFocus(false);
-    if (type === "email") {
-      !EMAIL_REGEX.test(value) ? setError(true) : setError(false);
-    }
-    if (type === "password" || type === "text") {
-      !PASSWORD_REGEX.test(value) ? setError(true) : setError(false);
-    }
+    !PASSWORD_REGEX.test(value) ? setError(true) : setError(false);
   };
 
   const handleTogglePassword = () => {
@@ -45,14 +40,12 @@ const PasswordInput = ({ type, errorMessage, children, placeholder }: Props) => 
         <S.Input
           id={type}
           placeholder={placeholder}
-          type={type === "email" ? "email" : showPassword ? "text" : "password"}
+          type={showPassword ? "text" : "password"}
           onFocus={handleFocus}
           onBlur={handleBlur}
           onChange={handleChange}
         />
-        {type !== "email" && (
-          <S.Image src={showPassword ? EYE_OPENED : EYE_CLOSED} alt="eye" onClick={handleTogglePassword} />
-        )}
+        <S.Image src={showPassword ? EYE_OPENED : EYE_CLOSED} alt="eye" onClick={handleTogglePassword} />
       </S.InputBox>
       {error && <S.Error>{errorMessage}</S.Error>}
     </S.Container>
