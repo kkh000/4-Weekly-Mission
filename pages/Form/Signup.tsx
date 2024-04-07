@@ -38,7 +38,7 @@ const Signup = () => {
     } else {
       try {
         const axios = CreateAxiosInstance();
-        const response = await axios.post("/check-email", {
+        await axios.post("/check-email", {
           email: emailValue,
         });
 
@@ -109,9 +109,6 @@ const Signup = () => {
         email: emailValue,
         password: passwordValue,
       });
-
-      console.log(response);
-
       if (response.status === 200) {
         route.push("/folder");
         const responseData = response.data;
@@ -120,6 +117,8 @@ const Signup = () => {
     } catch (error) {
       setEmailError(true);
       setPasswordError(true);
+      setEmailErrorMessage("이메일을 확인해 주세요");
+      setPasswordErrorMessage("비밀번호를 확인해주세요");
     }
   };
 
