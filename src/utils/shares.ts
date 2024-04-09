@@ -22,6 +22,7 @@ const loadKakaoSDK = () => {
         webUrl: "https://developers.kakao.com",
       },
     },
+
     buttons: [
       {
         title: "웹으로 이동",

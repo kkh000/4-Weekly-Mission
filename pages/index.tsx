@@ -1,10 +1,12 @@
 import RootLayout from "./_layout";
-import Landing from "./landing/Landing";
+import LandingHeader from "@/src/components/Landing/Header/LandingHeader";
+import LandingMain from "@/src/components/Landing/Main/LandingMain";
 
 const Home = () => {
   return (
     <RootLayout>
-      <Landing />
+      <LandingHeader />
+      <LandingMain />
     </RootLayout>
   );
 };

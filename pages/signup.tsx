@@ -1,5 +1,5 @@
-import Signup from "./(form)/Signup/Signup";
-import FormLayout from "./(form)";
+import Signup from "./Form/Signup";
+import FormLayout from "./Form/index";
 
 const SignupPage = () => {
   return (

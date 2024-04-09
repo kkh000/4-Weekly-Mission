@@ -1,12 +1,39 @@
 import RootLayout from "./_layout";
-import Shared from "./Shared/sharedPage";
+import SharedHeader from "@/src/components/Shared/Header/UserProfile";
+import SharedMain from "@/src/components/Shared/Main/SharedMain";
+import { SHARED_API_URL } from "@/src/constants/url";
+import { UserInfo, SharedCardProps } from "@/src/types/types";
+import { updatedDate, updatedDuration } from "@/src/utils/createdAt";
+import CreateAxiosInstance from "@/src/utils/axios";
 
-const SharedPage = () => {
+interface Props {
+  sharedCardData: SharedCardProps[];
+  userProfileData: UserInfo | null;
+}
+
+const SharedPage = ({ userProfileData, sharedCardData }: Props) => {
   return (
     <RootLayout>
-      <Shared />
+      <SharedHeader userProfile={userProfileData} />
+      <SharedMain cardData={sharedCardData} />
     </RootLayout>
   );
 };
 
 export default SharedPage;
+
+export const getServerSideProps = async () => {
+  const axios = CreateAxiosInstance();
+  try {
+    const response = await axios.get(SHARED_API_URL);
+    const userProfileData = response.data.folder;
+    const sharedCardData = response.data.folder.links.map((link: SharedCardProps) => ({
+      ...link,
+      time: updatedDuration(link.createdAt),
+      date: updatedDate(link.createdAt),
+    }));
+    return { props: { userProfileData, sharedCardData } };
+  } catch (error) {
+    console.error(error);
+  }
+};
