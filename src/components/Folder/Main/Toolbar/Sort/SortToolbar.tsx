@@ -1,15 +1,15 @@
 import { useState } from "react";
-import { FolderItemInfo } from "@/src/types/types";
+import { FolderListItem } from "@/src/types/FolderType";
 import * as S from "@/src/components/Folder/Main/Toolbar/Sort/SortToolbarStyle";
 
 interface Props {
-  folderList: FolderItemInfo[];
-  onChange: (folder: FolderItemInfo) => void;
+  folderList: FolderListItem[];
+  onChange: (folder: FolderListItem) => void;
 }
 
 const Sort = ({ folderList, onChange }: Props) => {
   const [focus, setFocus] = useState<number | null>(null);
-  const handleClick = (folder: FolderItemInfo) => {
+  const handleClick = (folder: FolderListItem) => {
     setFocus(folder.id);
     onChange(folder);
   };

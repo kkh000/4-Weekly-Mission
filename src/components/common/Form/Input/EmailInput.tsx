@@ -1,18 +1,5 @@
-import { useState, ReactNode } from "react";
-import { EMAIL_REGEX } from "@/src/constants/regex";
+import { FormInputProps } from "@/src/types/FormType";
 import * as S from "@/src/components/common/Form/FormStyle";
-
-interface Props {
-  children: ReactNode;
-  placeholder: string;
-  error: boolean;
-  onBlur: () => void;
-  onFocus: () => void;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  isFocused: boolean;
-  errorMessage: string;
-  email: string;
-}
 
 const EmailInput = ({
   onBlur,
@@ -24,15 +11,15 @@ const EmailInput = ({
   children,
   errorMessage,
   email,
-}: Props) => {
+}: FormInputProps) => {
   return (
     <S.Container>
       <S.InputTitle htmlFor="email">{children}</S.InputTitle>
       <S.InputBox $isError={error} $isfocused={isFocused}>
         <S.Input
           id="email"
-          placeholder={placeholder}
           type="email"
+          placeholder={placeholder}
           onFocus={onFocus}
           onBlur={onBlur}
           onChange={onChange}

@@ -1,20 +1,23 @@
-import { useState } from "react";
-import { AddLinkButton } from "@/src/components/common/Button/ButtonStyle";
 import ListModal from "@/src/components/common/Modal/ListModal";
-import { FolderItemInfo } from "@/src/types/types";
+import { AddLinkButton } from "@/src/components/common/Button/ButtonStyle";
+import useToggledModal from "@/src/utils/hooks/useToggledModal";
+import { useFolderList } from "@/src/contexts/CardListContext";
 import { LINK_ICON } from "@/src/constants/image";
 import * as S from "@/src/components/Folder/Header/AddLinkStyle";
+import { FolderListItem } from "@/src/types/FolderType";
 
 interface Props {
-  folderList: FolderItemInfo[];
+  cardList: FolderListItem[];
 }
 
-const FolderHeader = ({ folderList }: Props) => {
-  const [isToggledModal, setIsToggledModal] = useState(false);
-
-  const handleModal = () => {
-    setIsToggledModal(!isToggledModal);
-  };
+const AddLink = ({ cardList }: Props) => {
+  const {
+    states: { isToggled },
+    toggleModal,
+  } = useToggledModal({
+    isToggled: false,
+  });
+  const { folderList } = useFolderList();
 
   return (
     <S.Container>
@@ -23,9 +26,15 @@ const FolderHeader = ({ folderList }: Props) => {
           <S.Image src={LINK_ICON} alt="add" />
           <S.Input placeholder="링크를 추가해 보세요" />
         </S.BoxInput>
-        <AddLinkButton onClick={handleModal}>추가하기</AddLinkButton>
-        {isToggledModal && (
-          <ListModal title="폴더에 추가" folderList={folderList} onClose={handleModal}>
+        <AddLinkButton onClick={() => toggleModal("isToggled")}>추가하기</AddLinkButton>
+        {isToggled && (
+          <ListModal
+            title="폴더에 추가"
+            isOpened={isToggled}
+            folderList={folderList}
+            cardList={cardList}
+            onClose={() => toggleModal("isToggled")}
+          >
             폴더에 추가하기
           </ListModal>
         )}
@@ -34,4 +43,4 @@ const FolderHeader = ({ folderList }: Props) => {
   );
 };
 
-export default FolderHeader;
+export default AddLink;
