@@ -1,12 +1,8 @@
 import Modal from "./BaseModal";
 import { AddModalButton } from "../Button/ButtonStyle";
 import { CLOSE_BUTTON } from "@/src/constants/image";
-import { ModalProps } from "./BaseModal";
+import { InputModalProps } from "@/src/types/ModalType";
 import * as S from "./ModalStyle";
-
-interface InputModalProps extends ModalProps {
-  placeholder: string;
-}
 
 const InputModal = ({ children, title, placeholder, onClose }: InputModalProps) => {
   return (

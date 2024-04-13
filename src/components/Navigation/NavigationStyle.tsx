@@ -26,3 +26,25 @@ export const Logo = styled.img`
     height: 16px;
   }
 `;
+
+export const UserBox = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 6px;
+`;
+
+export const UserName = styled.div`
+  color: var(--Linkbrary-gray100, #373740);
+
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+`;
+
+export const UserImage = styled.img`
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+`;

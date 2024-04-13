@@ -1,14 +1,9 @@
 import Link from "next/link";
 import { LINKBRARY_LOGO } from "@/src/constants/image";
+import { FormTitleProps } from "@/src/types/FormType";
 import * as S from "@/src/components/common/Form/FormStyle";
 
-interface Props {
-  linkMessage: string;
-  title: string;
-  path: string;
-}
-
-const FormTitle = ({ path, linkMessage, title }: Props) => {
+const FormTitle = ({ path, message, title }: FormTitleProps) => {
   return (
     <S.Container>
       <Link href="/">
@@ -17,7 +12,7 @@ const FormTitle = ({ path, linkMessage, title }: Props) => {
       <S.TitleBox>
         <S.TitleText>{title}</S.TitleText>
         <Link href={path ?? ""}>
-          <S.TitleLink>{linkMessage}</S.TitleLink>
+          <S.TitleLink>{message}</S.TitleLink>
         </Link>
       </S.TitleBox>
     </S.Container>

@@ -1,12 +1,13 @@
 import { useState, useEffect, useRef, forwardRef } from "react";
 import SelectMenu from "../Popover/SelectMenu";
 import { CARD_NONE_IMAGE, CARD_STAR, CARD_BLUE_STAR, CARD_KEBAB } from "@/src/constants/image";
-import { FolderItemInfo, FolderCardInfo } from "@/src/types/types";
+
 import * as S from "@/src/components/Folder/Main/Card/CardStyle";
+import { FolderCardItem, FolderListItem } from "@/src/types/FolderType";
 
 interface Props {
-  cardList: FolderCardInfo[];
-  folderList: FolderItemInfo[];
+  cardList: FolderCardItem[];
+  folderList: FolderListItem[];
 }
 
 const Card = forwardRef<HTMLDivElement, Props>(({ cardList, folderList }: Props, ref) => {

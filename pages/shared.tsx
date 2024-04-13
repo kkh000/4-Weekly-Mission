@@ -2,19 +2,18 @@ import RootLayout from "./_layout";
 import SharedHeader from "@/src/components/Shared/Header/UserProfile";
 import SharedMain from "@/src/components/Shared/Main/SharedMain";
 import { SHARED_API_URL } from "@/src/constants/url";
-import { UserInfo, SharedCardProps } from "@/src/types/types";
+import { SharedCardProps } from "@/src/types/types";
 import { updatedDate, updatedDuration } from "@/src/utils/createdAt";
 import CreateAxiosInstance from "@/src/utils/axios";
 
 interface Props {
   sharedCardData: SharedCardProps[];
-  userProfileData: UserInfo | null;
 }
 
-const SharedPage = ({ userProfileData, sharedCardData }: Props) => {
+const SharedPage = ({ sharedCardData }: Props) => {
   return (
     <RootLayout>
-      <SharedHeader userProfile={userProfileData} />
+      <SharedHeader userProfile={null} />
       <SharedMain cardData={sharedCardData} />
     </RootLayout>
   );

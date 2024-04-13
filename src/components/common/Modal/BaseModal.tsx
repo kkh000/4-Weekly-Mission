@@ -1,22 +1,27 @@
-import { useEffect } from "react";
 import ReactDom from "react-dom";
-import { ReactNode } from "react";
+import { useState, useEffect } from "react";
 import { allowScroll, preventScroll } from "@/src/utils/scroll";
+import { ModalProps } from "@/src/types/ModalType";
 import * as S from "./ModalStyle";
 
-export interface ModalProps {
-  children: ReactNode;
-  title: string;
-  onClose?: () => void;
-}
+const Modal = ({ children, title, onClose, isOpened }: ModalProps) => {
+  const [modalRoot, setModalRoot] = useState<HTMLElement | null>(null);
 
-const Modal = ({ children, title, onClose }: ModalProps) => {
   useEffect(() => {
-    const prevScrollY = preventScroll();
-    return () => {
-      allowScroll(prevScrollY);
-    };
+    setModalRoot(document.getElementById("modal"));
   }, []);
+
+  useEffect(() => {
+    if (!modalRoot) return;
+    if (isOpened) {
+      const prevScrollY = preventScroll();
+      return () => {
+        allowScroll(prevScrollY);
+      };
+    }
+  }, [modalRoot, isOpened]);
+
+  if (typeof window === "undefined" || !modalRoot) return null;
 
   return ReactDom.createPortal(
     <S.Background onClick={onClose}>
@@ -29,7 +34,7 @@ const Modal = ({ children, title, onClose }: ModalProps) => {
         {children}
       </S.Container>
     </S.Background>,
-    document.getElementById("modal") as HTMLElement
+    modalRoot
   );
 };
 

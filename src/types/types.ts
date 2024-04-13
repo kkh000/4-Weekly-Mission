@@ -5,8 +5,11 @@ export interface UserProps {
 }
 
 export interface UserInfo {
+  auth_id: any;
   id: number;
   name: string;
+  image_source: string;
+  email: string;
   owner: {
     id: number;
     name: string;
@@ -44,6 +47,7 @@ export interface FolderItemInfo {
   link?: {
     count: number;
   };
+  folder?: FolderCardInfo[];
 }
 
 /* NOTE - folder Card */

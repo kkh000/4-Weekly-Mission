@@ -1,10 +1,16 @@
 import { useState, useEffect } from "react";
 import InputModal from "@/src/components/common/Modal/InputModal";
+import useToggledModal from "@/src/utils/hooks/useToggledModal";
 import { ADD_FOLDER_ICON, ACTION_BUTTON_ICON } from "@/src/constants/image";
 import * as S from "@/src/components/Folder/Main/ActionButton/ActionButtonStyle";
 
 const ActionButton = () => {
-  const [isToggledModal, setIsToggeldModal] = useState(false);
+  const {
+    states: { isToggled },
+    toggleModal,
+  } = useToggledModal({
+    isToggled: false,
+  });
   const [changeIcon, setChangeIcon] = useState(ADD_FOLDER_ICON);
 
   useEffect(() => {
@@ -19,16 +25,17 @@ const ActionButton = () => {
     };
   }, []);
 
-  const handleModal = () => {
-    setIsToggeldModal(!isToggledModal);
-  };
-
   return (
-    <S.Container onClick={handleModal}>
+    <S.Container onClick={() => toggleModal("isToggled")}>
       <S.Title>폴더 추가</S.Title>
       <S.Image src={changeIcon} alt="add" />
-      {isToggledModal && (
-        <InputModal title="폴더 추가" placeholder="내용입력" onClose={handleModal}>
+      {isToggled && (
+        <InputModal
+          isOpened={isToggled}
+          title="폴더 추가"
+          placeholder="내용입력"
+          onClose={() => toggleModal("isToggled")}
+        >
           추가하기
         </InputModal>
       )}

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { CLOSE_BUTTON, SEARCH_ICON } from "@/src/constants/image";
-import { FolderCardInfo } from "@/src/types/types";
 import * as S from "@/src/components/Folder/Main/Input/SearchStyle";
+import { FolderCardItem } from "@/src/types/FolderType";
 
 interface Props {
-  cardList: FolderCardInfo[];
-  setSearchFilter: React.Dispatch<React.SetStateAction<FolderCardInfo[]>>;
+  cardList: FolderCardItem[];
+  setSearchFilter: React.Dispatch<React.SetStateAction<FolderCardItem[]>>;
 }
 
 const FolderSerachInput = ({ cardList, setSearchFilter }: Props) => {
